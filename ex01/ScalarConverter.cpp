@@ -7,8 +7,8 @@
 
 ScalarConverter::ScalarConverter(){}
 
-ScalarConverter::~ScalarConverter(){
-}
+// ScalarConverter::~ScalarConverter(){
+// }
 
 ScalarConverter & ScalarConverter::operator=(const ScalarConverter &obj)
 {

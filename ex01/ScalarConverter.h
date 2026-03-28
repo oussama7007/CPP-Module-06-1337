@@ -1,8 +1,5 @@
 
-
-
 #include <iostream>
-
 
 class ScalarConverter 
 {

@@ -6,7 +6,7 @@
 
 class ScalarConverter 
 {
-    public:
+    private:
         ScalarConverter();
         ~ScalarConverter();
         ScalarConverter &operator=(const ScalarConverter &obj);

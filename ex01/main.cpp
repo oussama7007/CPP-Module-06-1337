@@ -4,13 +4,9 @@
 using namespace std;
 
 int main() {
-    char c = 'a';
+    int a = 97;
 
-  	// Converting c from char to int
-  	int i = static_cast<int>(c);
-
-	// Printing the converted value
-    cout << i << std::endl;
+    char b = static_cast<char>(a)
 
     return 0;
 }

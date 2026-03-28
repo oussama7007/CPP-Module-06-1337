@@ -6,12 +6,12 @@
 
 class ScalarConverter 
 {
-    private:
+    public:
         ScalarConverter();
         ~ScalarConverter();
         ScalarConverter &operator=(const ScalarConverter &obj);
         ScalarConverter(const ScalarConverter &obj);
 
-        static  
+        
     
-}
+};

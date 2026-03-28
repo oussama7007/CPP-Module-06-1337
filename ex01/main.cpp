@@ -9,6 +9,6 @@ int main() {
 
     char b = static_cast<char>(a);
     std::cout << b << a;
-    cd
+    ScalarConverter a;
     return 0;
 }

@@ -5,16 +5,7 @@
 #include "ScalarConverter.h"
 
 
-ScalarConverter::ScalarConverter(){}
-
-ScalarConverter::~ScalarConverter(){
-}
-
-ScalarConverter & ScalarConverter::operator=(const ScalarConverter &obj)
+static void     convet(const std::string &str)
 {
-    return *this;
-}
-
-ScalarConverter::ScalarConverter(const ScalarConverter &obj)
-{ 
+    
 }

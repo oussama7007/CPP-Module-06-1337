@@ -2,13 +2,14 @@
 
 #include <bits/stdc++.h>
 #include "ScalarConverter.h"
-using namespace std;
 
+void    func(const std::string &str)
+{
+    std::cout << str;
+}
 int main() {
-    // int a = 97;
 
-    // char b = static_cast<char>(a);
-    // std::cout << b << a;
-    ScalarConverter a;
+    
+
     return 0;
 }

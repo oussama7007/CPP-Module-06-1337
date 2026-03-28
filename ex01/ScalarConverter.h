@@ -1,4 +1,8 @@
 
+
+#pragma once 
+
+
 #include <iostream>
 
 class ScalarConverter 
@@ -10,5 +14,5 @@ class ScalarConverter
         ScalarConverter &operator=(const ScalarConverter &obj);
         ScalarConverter(const ScalarConverter &obj);    
 
-        static void  convert(std::string &str) ;
+        static void  convert(const std::string &str) ;
 };

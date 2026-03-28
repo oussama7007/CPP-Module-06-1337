@@ -5,12 +5,12 @@ using namespace std;
 
 int main() {
     char c = 'a';
-  
+
   	// Converting c from char to int
   	int i = static_cast<int>(c);
   
 	// Printing the converted value
-    cout << i;
+    cout << i << std::endl;
 
     return 0;
 }

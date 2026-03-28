@@ -1,11 +1,16 @@
 
 
+#include <bits/stdc++.h>
+using namespace std;
 
-#include <iostream>
+int main() {
+    char c = 'a';
+  
+  	// Converting c from char to int
+  	int i = static_cast<int>(c);
+  
+	// Printing the converted value
+    cout << i;
 
-int main()
-{
-    
-    int *p = new int[10000000000000000];
-
+    return 0;
 }

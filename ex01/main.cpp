@@ -6,7 +6,8 @@ using namespace std;
 int main() {
     int a = 97;
 
-    char b = static_cast<char>(a)
+    char b = static_cast<char>(a);
+    std::cout << b;
 
     return 0;
 }

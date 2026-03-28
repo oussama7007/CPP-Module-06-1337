@@ -9,5 +9,5 @@ class ScalarConverter
         ScalarConverter &operator=(const ScalarConverter &obj);
         ScalarConverter(const ScalarConverter &obj);    
 
-
+        static vaoid 
 };

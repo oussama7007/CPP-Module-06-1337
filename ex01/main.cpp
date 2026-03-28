@@ -7,7 +7,7 @@ int main() {
     int a = 97;
 
     char b = static_cast<char>(a);
-    std::cout << b;
+    std::cout << b << a;
 
     return 0;
 }

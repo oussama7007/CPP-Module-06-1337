@@ -2,10 +2,13 @@
 
 
 
-#include "ScalarConverter.h"
+// #include "ScalarConverter.h"
 
 
-static void     convet(const std::string &str)
-{
+// static void     convet(const std::string &str)
+// {
     
-}
+// }
+
+
+

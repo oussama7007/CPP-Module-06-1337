@@ -11,4 +11,14 @@
 // }
 
 
+#include <iostream>
+#include <string>
+#include <cmath>
 
+
+int main() {
+
+    float   f = std::nanf("nullptr");
+    std::cout << f << std::endl;
+
+}

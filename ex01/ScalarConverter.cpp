@@ -2,38 +2,40 @@
 
 
 
-// #include "ScalarConverter.h"
+#include "ScalarConverter.h"
 
 
-// static void     convet(const std::string &str)
-// {
+static void     convet(const std::string &str)
+{
+    // parsing to check the type of the input 
+    std::string new_string = str;
+    if(new_string.back() == 'f' && new_string != "+inf" && new_string != "+inf" && new_string != "nanf")
+        new_string.pop_back();
+    double dob = std::stod(new_string);
+    // char
+    if (dob < 0 || dob > 127 || std::isnan(dob) || std::isinf(dob))
+        std::cout << "char: impossible\n";
+    else if(!isprint(static_cast<char>(dob)))
+        std::cout << "char: Non displayable\n";
+    else
+        std::cout << "char: '" << static_cast<char>(dob) << "'\n";
     
-// }
-
-
-#include <iostream>
-#include <string>
-#include <cmath>
-
-
-int main() {
-
-    std::string input1 = "nan";
-    std::string input2 = "inf";
-
-    try{
-        int x1 = std::stoi(input1);
-        std::cout << "x1: " << x1 << std::endl;
-    } catch (const std::exception& e) {
-        std::cout << "خطأ عند تحويل '" << input1 << "': " << e.what() << std::endl;
-    }
-
-    try {
-        int x2 = std::stoi(input2); // ❌ سيعطي خطأ أيضاً
-        std::cout << "x2: " << x2 << std::endl;
-    } catch (const std::exception& e) {
-        std::cout << "خطأ عند تحويل '" << input2 << "': " << e.what() << std::endl;
-    }
-
-
+    // int 
+    if(std::isnan(dob) || std::isinf(dob) || dob > __INT_MAX__ || dob < __INT_MIN__ )
 }
+
+
+
+
+
+// int
+if (std::isnan(dob) || std::isinf(dob) || dob > INT_MAX || dob < INT_MIN)
+    std::cout << "int: impossible\n";
+else
+    std::cout << "int: " << static_cast<int>(dob) << "\n";
+
+// float
+std::cout << "float: " << static_cast<float>(dob) << "f\n";
+
+// double
+std::cout << "double: " << dob << "\n";

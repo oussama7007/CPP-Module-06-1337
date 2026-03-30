@@ -5,7 +5,7 @@
 #include "ScalarConverter.h"
 
 
-void    handl_char(std::string &str)
+void    handle_char(std::string &str)
 {
         char character = str[0];
         // char 
@@ -19,33 +19,18 @@ void    handl_char(std::string &str)
         return ;
 }
 
-void     ScalarConverter::convert(const std::string &str)
-{
-    // parsing to check the type of the input 
-    std::string new_string = str;
-    if (new_string.length() == 1 && !std::isdigit(new_string[0]))  // kassek matkhelich char ydoz hitach -double d = std::stod(s);- o s = "a" , ghadi throw exception 
-        return handl_char(new_string);
-    
-    if(new_string.back() == 'f' &&  new_string != "+inf" && new_string != "nanf")
-        new_string.pop_back();
 
-    double dob = std::stod(new_string);
-    // char
+void print_floats(double dob) {
+    // Check if there's a fractional part or if it's a special value
+    bool hasDecimal = (dob - static_cast<long>(dob) != 0);
 
-    if (dob < 0 || dob > 127 || std::isnan(dob) || std::isinf(dob))
-        std::cout << "char: impossible\n";
-    else if(!isprint(static_cast<char>(dob)))
-        std::cout << "char: Non displayable\n";
-    else
-        std::cout << "char: '" << static_cast<char>(dob) << "'\n";
-    // int 
-    if(std::isnan(dob) || std::isinf(dob) || dob > INT_MAX || dob < INT_MIN)
-        std::cout << "int: impossible\n";
-    else 
-        std::cout << "int: " << static_cast<int>(dob) << "\n";
-    // float
-    std::cout << "float: " << static_cast<float>(dob) << "f\n";
-    std::cout << "double: " << dob << "\n";
+    std::cout << "float: " << static_cast<float>(dob);
+    if (!hasDecimal && !std::isnan(dob) && !std::isinf(dob)) std::cout << ".0";
+    std::cout << "f" << std::endl;
+
+    std::cout << "double: " << dob;
+    if (!hasDecimal && !std::isnan(dob) && !std::isinf(dob)) std::cout << ".0";
+    std::cout << std::endl;
 }
 
 
@@ -95,20 +80,9 @@ void ScalarConverter::convert(const std::string &str) {
     else
         std::cout << static_cast<int>(dob) << std::endl;
 
+    
     // 5. Display Float/Double with .0 precision
     print_floats(dob);
 }
 
 
-void print_floats(double dob) {
-    // Check if there's a fractional part or if it's a special value
-    bool hasDecimal = (dob - static_cast<long>(dob) != 0);
-
-    std::cout << "float: " << static_cast<float>(dob);
-    if (!hasDecimal && !std::isnan(dob) && !std::isinf(dob)) std::cout << ".0";
-    std::cout << "f" << std::endl;
-
-    std::cout << "double: " << dob;
-    if (!hasDecimal && !std::isnan(dob) && !std::isinf(dob)) std::cout << ".0";
-    std::cout << std::endl;
-}

@@ -5,7 +5,7 @@
 #include <cmath>
 #include <iostream>
 #include  <climits>
-
+#include <cstdlib> //header is typically used for string → number conversion in C++98?
 class ScalarConverter 
 {
 

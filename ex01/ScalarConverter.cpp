@@ -12,15 +12,17 @@ static void     convet(const std::string &str)
     if(new_string.back() == 'f' &&  new_string != "+inf" && new_string != "nanf")
         new_string.pop_back();
 
+    if (str.length() == 1 && !std::isdigit(str[0])) // kassek matkhelich char ydoz hitach -double d = std::stod(s);- o s = "a" , ghadi throw exception 
+
     double dob = std::stod(new_string);
     // char
+
     if (dob < 0 || dob > 127 || std::isnan(dob) || std::isinf(dob))
         std::cout << "char: impossible\n";
     else if(!isprint(static_cast<char>(dob)))
         std::cout << "char: Non displayable\n";
     else
         std::cout << "char: '" << static_cast<char>(dob) << "'\n";
-    
     // int 
     if(std::isnan(dob) || std::isinf(dob) || dob > INT_MAX || dob < INT_MIN)
         std::cout << "int: impossible\n";
@@ -30,8 +32,4 @@ static void     convet(const std::string &str)
     std::cout << "float: " << static_cast<float>(dob) << "f\n";
     std::cout << "double: " << dob << "\n";
 }
-
-
-
-
 

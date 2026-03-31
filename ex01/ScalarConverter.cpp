@@ -46,24 +46,23 @@ void ScalarConverter::convert(const std::string &str) {
 
     // 2. Handle numeric conversion with a safety net
     double dob;
-    try {
-        // Handling the 'f' suffix for floats manually for C++98 compatibility
+    // Handling the 'f' suffix for floats manually for C++98 compatibility
         if (new_string.length() > 1 && new_string[new_string.length() - 1] == 'f' 
             && new_string != "+inf" && new_string != "-inf" && new_string != "nan") {
             new_string.erase(new_string.length() - 1);
         }
         
         // Use stod (C++11) or atof/strtod (C++98)
-        dob = std::stod(new_string); 
-    } catch (...) {
-        // If "hello" or any garbage is passed, print impossible for everything
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: nanf" << std::endl;
-        std::cout << "double: nan" << std::endl;
-        return;
-    }
-
+        char *end; 
+        dob = std::strtod(new_string.c_str(), &end);  // end pointer to tell you where it stops reading the string 
+        if(*end != '\0')
+        {
+            std::cout << "char: impossible"<< std::endl;
+            std::cout << "int: impossible" << std::endl;
+            std::cout << "float: impossible" << std::endl;
+            std::cout << "double: impossible" << std::endl;
+            return ;
+        }
     // 3. Display Char
     std::cout << "char: ";
     if (std::isnan(dob) || std::isinf(dob) || dob < 0 || dob > 127)

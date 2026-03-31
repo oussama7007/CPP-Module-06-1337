@@ -72,6 +72,7 @@ void ScalarConverter::convert(const std::string &str) {
     else
         std::cout << "'" << static_cast<char>(dob) << "'" << std::endl;
 
+
     // 4. Display Int
     std::cout << "int: ";
     if (std::isnan(dob) || std::isinf(dob) || dob > INT_MAX || dob < INT_MIN)
@@ -79,7 +80,6 @@ void ScalarConverter::convert(const std::string &str) {
     else
         std::cout << static_cast<int>(dob) << std::endl;
 
-    
     // 5. Display Float/Double with .0 precision
     print_floats(dob);
 }

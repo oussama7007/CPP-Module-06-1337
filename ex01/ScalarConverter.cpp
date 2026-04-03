@@ -34,27 +34,31 @@ void print_floats(double dob)
 void ScalarConverter::convert(const std::string &str) {
     std::string new_string = str;
 
-    // 1. Handle Single Char (e.g., "a", "*")
+     // Char (e.g., "a", "*")
     if (new_string.length() == 1 && !std::isdigit(new_string[0])) {
         handle_char(new_string);
         return;
     }
-    if (new_string == "nanf" || new_string == "+inff" || new_string == "-inff") {
 
+        // Check if the string is a pseudo-literal (science string)
+        bool isSpecialFloat = (new_string == "nanf" || new_string == "+inff" || 
+                       new_string == "-inff" || new_string == "inff");
+
+        // Check if it's a normal float (ends in 'f' and isn't just the letter 'f')
+        bool isNormalFloat = (new_string.length() > 1 && 
+                      new_string[new_string.length() - 1] == 'f' && 
+                      new_string != "+inf" && new_string != "-inf" && new_string != "nan");
+
+        if (isSpecialFloat || isNormalFloat) {
         new_string.erase(new_string.length() - 1);
-    } 
-    else if (new_string.length() > 1 && new_string[new_string.length() - 1] == 'f') {
+        }
+        else if (new_string.length() > 1 && new_string[new_string.length() - 1] == 'f') {
         // For normal floats like 42.0f, we strip the f
         new_string.erase(new_string.length() - 1);
-    }
+        }
 
     // 2. Handle numeric conversion with a safety net
-    double dob;
-    // Handling the 'f' suffix for floats manually for C++98 compatibility
-        if (new_string.length() > 1 && new_string[new_string.length() - 1] == 'f' 
-            && new_string != "+inf" && new_string != "-inf" && new_string != "nan") {
-            new_string.erase(new_string.length() - 1);
-        }
+        double dob;
         
         // Use stod (C++11) or atof/strtod (C++98)
         char *end; 

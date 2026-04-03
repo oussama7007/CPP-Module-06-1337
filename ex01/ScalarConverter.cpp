@@ -8,13 +8,9 @@
 void    handle_char(std::string &str)
 {
         char character = str[0];
-        // char 
         std::cout << "char :" << character << std::endl;
-        // int 
         std::cout << "int :" << static_cast<int>(character) << std::endl;
-        // float 
         std::cout << "float :" << static_cast<float>(character) << "f" << std::endl;
-        // double 
         std::cout << "double :" << static_cast<double>(character) << std::endl;
         return ;
 }
@@ -34,7 +30,6 @@ void print_floats(double dob) {
 }
 
 
-
 void ScalarConverter::convert(const std::string &str) {
     std::string new_string = str;
 
@@ -42,6 +37,14 @@ void ScalarConverter::convert(const std::string &str) {
     if (new_string.length() == 1 && !std::isdigit(new_string[0])) {
         handle_char(new_string);
         return;
+    }
+    if (new_string == "nanf" || new_string == "+inff" || new_string == "-inff") {
+
+        new_string.erase(new_string.length() - 1);
+    } 
+    else if (new_string.length() > 1 && new_string[new_string.length() - 1] == 'f') {
+        // For normal floats like 42.0f, we strip the f
+        new_string.erase(new_string.length() - 1);
     }
 
     // 2. Handle numeric conversion with a safety net
@@ -83,5 +86,3 @@ void ScalarConverter::convert(const std::string &str) {
     // 5. Display Float/Double with .0 precision
     print_floats(dob);
 }
-
-

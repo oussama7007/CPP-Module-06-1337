@@ -5,7 +5,12 @@
 
 
 
-int main()
+int main(int ac, char **av)
 {
-    ScalarConverter::convert("hello");
+    if (ac != 2)
+    {
+        std::cout << "Usage: ./converter <literal>" << std::endl;
+        return 1;
+    }
+    ScalarConverter::convert(av[1]);
 }

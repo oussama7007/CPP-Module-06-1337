@@ -16,7 +16,8 @@ void    handle_char(std::string &str)
 }
 
 
-void print_floats(double dob) {
+void print_floats(double dob)
+{
     // Check if there's a fractional part or if it's a special value
     bool hasDecimal = (dob - static_cast<long>(dob) != 0);
 

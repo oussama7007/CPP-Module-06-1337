@@ -52,9 +52,10 @@ void ScalarConverter::convert(const std::string &str) {
     }
 
     char *end;
-    double dob = std::strtod(new_string.c_str(), &end);
-    
-    if (*end != '\0') {
+    double dob = std::strtod(new_string.c_str(), &end); // it return 0.0 when it meets a char at beginning of the string 
+                                                        // kat skipi waitespace "    42" dayza  
+    if (*end != '\0') 
+    {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: nanf" << std::endl;

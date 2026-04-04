@@ -12,5 +12,4 @@ struct  Data
 {
     private:
         int     i;
-        std::string name;
 }

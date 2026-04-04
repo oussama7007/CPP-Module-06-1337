@@ -33,8 +33,12 @@ static void handle_char(const std::string &str) {
 void ScalarConverter::convert(const std::string &str) {
     std::string new_string = str;
 
-    if (new_string.empty()) return;
-
+    if (new_string.empty()) 
+    {
+        std::cout << "string is empty" << std::endl;    
+        return;
+    }
+    
     if (new_string.length() == 1 && !std::isdigit(static_cast<unsigned char>(new_string[0]))) { 
         handle_char(new_string);
         return;

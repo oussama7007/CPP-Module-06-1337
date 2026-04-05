@@ -5,17 +5,16 @@
 
 #include "Data.h"
 #include <iostream>
-#include <stdint.h>
 
-
-class   Srializer
+#include <stdint.h> 
+class   Serializer
 {
     private:
-        Srializer();
-        Srializer(const  Srializer &obj);
-        Srializer&  operator=(const Srializer &obj);
-        ~Srializer();
+        Serializer();
+        Serializer(const  Serializer &obj);
+        Serializer&  operator=(const Serializer &obj);
+        ~Serializer();
     public:
         static  uintptr_t serialize(Data* ptr);
         static Data* deserialize(uintptr_t raw);
-}
+};

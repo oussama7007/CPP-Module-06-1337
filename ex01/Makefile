@@ -1,23 +1,17 @@
 
-
-
-
-
-
 CXX = g++
 
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 
-NAME = converter
+NAME = Serializer
 
 SRCS = main.cpp Serializer.cpp
 
-
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = ScalarConverter.h
+HEADERS = ScalarConverter.h Data.h
 
 all: $(NAME)
 

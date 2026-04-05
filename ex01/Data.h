@@ -10,6 +10,5 @@
 
 struct  Data
 {
-    private:
-        int     i;
-}
+        int     value;
+};

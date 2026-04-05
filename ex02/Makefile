@@ -1,21 +1,13 @@
-
-
-CXX = g++
-
-
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
+NAME = identify
 
-NAME = Serializer
-
-SRCS = main.cpp Serializer.cpp
-
+SRCS = main.cpp Base.cpp generate.cpp identify.cpp
 OBJS = $(SRCS:.cpp=.o)
-
-HEADERS = ScalarConverter.h Data.h
+HEADERS = Base.h A.h B.h C.h
 
 all: $(NAME)
-
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)

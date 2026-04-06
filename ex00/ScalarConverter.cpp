@@ -6,28 +6,41 @@
 #include "ScalarConverter.h"
 
 static void print_floats(double dob) {
-    bool hasDecimal = (dob - static_cast<long>(dob) != 0);
+    // bool hasDecimal = (dob - std::floor(dob) != 0.0); 
 
-    std::cout << "float: " << static_cast<float>(dob);
-    if (!hasDecimal && !std::isnan(dob) && !std::isinf(dob)) 
+    // std::cout << "float: " << static_cast<float>(dob);
+    // if (!hasDecimal && !std::isnan(dob) && !std::isinf(dob)) 
+    //     std::cout << ".0";
+    // std::cout << "f" << std::endl;
+
+    // std::cout << "double: " << dob;
+    // if (!hasDecimal && !std::isnan(dob) && !std::isinf(dob)) 
+    //     std::cout << ".0";
+    // std::cout << std::endl;
+    
+    float f_val = static_cast<float>(dob);
+
+    // Check decimals independently for both types
+    bool hasDecimalDouble = (dob - std::floor(dob) != 0.0); 
+    bool hasDecimalFloat = (f_val - std::floor(f_val) != 0.0f);
+
+    std::cout << "float: " << f_val;
+    // Only append .0 if it's NOT nan, NOT inf, has no decimal, and isn't in scientific notation
+    if (!hasDecimalFloat && !std::isnan(f_val) && !std::isinf(f_val) && f_val < 1e6 && f_val > -1e6) 
         std::cout << ".0";
     std::cout << "f" << std::endl;
 
     std::cout << "double: " << dob;
-    if (!hasDecimal && !std::isnan(dob) && !std::isinf(dob)) 
+    if (!hasDecimalDouble && !std::isnan(dob) && !std::isinf(dob) && dob < 1e6 && dob > -1e6) 
         std::cout << ".0";
     std::cout << std::endl;
 }
 
 static void handle_char(const std::string &str) {
-    if (str.length() == 1) {
         char character = str[0]; // Access the first character
         std::cout << "char: '" << character << "'" << std::endl;
         std::cout << "int: " << static_cast<int>(character) << std::endl;
         print_floats(static_cast<double>(character));
-    } else {
-        std::cout << "char: impossible" << std::endl;
-    }
 }
 
 void ScalarConverter::convert(const std::string &str) {
@@ -43,15 +56,10 @@ void ScalarConverter::convert(const std::string &str) {
         handle_char(new_string);
         return;
     }
-
-    bool isSpecialFloat = (new_string == "nanf" || new_string == "+inff" || 
-                           new_string == "-inff" || new_string == "inff");
-
     bool isNormalFloat = (new_string.length() > 1 && 
-                          new_string[new_string.length() - 1] == 'f' && 
-                          new_string != "+inf" && new_string != "-inf" && new_string != "nan");
+                          new_string[new_string.length() - 1] == 'f');
 
-    if (isSpecialFloat || isNormalFloat) {
+    if ( isNormalFloat) {
         new_string.erase(new_string.length() - 1);
     }
 

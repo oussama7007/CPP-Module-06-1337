@@ -12,5 +12,6 @@ int main()
 {   
     double a = 2.999999;
     float b = static_cast<float>(a);
-    printf("float = :%f\n", &b);
+    // printf("float = :%lf\n", &a);
+    std::cout << a
 }

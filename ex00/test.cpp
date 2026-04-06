@@ -10,8 +10,9 @@
 using namespace std;
 int main()
 {   
-    double a = 2.999999;
+    double a = 2999996;
     float b = static_cast<float>(a);
     // printf("float = :%lf\n", &a);
-    std::cout << a
+    std::cout << a << std::endl ;
+    std::cout << a;
 }

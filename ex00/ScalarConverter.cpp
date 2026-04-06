@@ -6,21 +6,11 @@
 #include "ScalarConverter.h"
 
 static void print_floats(double dob) {
-    // bool hasDecimal = (dob - std::floor(dob) != 0.0); 
 
-    // std::cout << "float: " << static_cast<float>(dob);
-    // if (!hasDecimal && !std::isnan(dob) && !std::isinf(dob)) 
-    //     std::cout << ".0";
-    // std::cout << "f" << std::endl;
 
-    // std::cout << "double: " << dob;
-    // if (!hasDecimal && !std::isnan(dob) && !std::isinf(dob)) 
-    //     std::cout << ".0";
-    // std::cout << std::endl;
-    
     float f_val = static_cast<float>(dob);
 
-    // Check decimals independently for both types
+    
     bool hasDecimalDouble = (dob - std::floor(dob) != 0.0); 
     bool hasDecimalFloat = (f_val - std::floor(f_val) != 0.0f);
 

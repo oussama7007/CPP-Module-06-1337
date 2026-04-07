@@ -6,7 +6,7 @@
 #include "A.h"
 #include "B.h"
 #include "C.h"
-#include <cstdlib> // For rand()
+#include <cstdlib>
 
 Base* generate(void) {
     int randomValue = rand() % 3;

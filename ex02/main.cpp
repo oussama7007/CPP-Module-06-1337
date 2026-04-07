@@ -8,13 +8,13 @@
 #include <ctime>   // For time()
 
 
-// Function prototypes so main knows they exist
+
 Base* generate(void);
 void identify(Base* p);
 void identify(Base& p);
 
 int main() {
-    // Seed the random number generator once
+   
     srand(time(NULL));
 
     std::cout << "--- Generating 3 random objects ---" << std::endl;
@@ -32,7 +32,7 @@ int main() {
         
         std::cout << "-----------------------------------" << std::endl;
         
-        // Don't forget to free the memory!
+        
         delete obj;
     }
     return 0;

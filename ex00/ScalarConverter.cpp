@@ -15,7 +15,7 @@ static void print_floats(double dob) {
     bool hasDecimalFloat = (f_val - std::floor(f_val) != 0.0f);
 
     std::cout << "float: " << f_val;
-    // Only append .0 if it's NOT nan, NOT inf, has no decimal, and isn't in scientific notation
+    
     if (!hasDecimalFloat && !std::isnan(f_val) && !std::isinf(f_val) && f_val < 1e6 && f_val > -1e6) 
         std::cout << ".0";
     std::cout << "f" << std::endl;

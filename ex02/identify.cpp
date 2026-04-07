@@ -9,7 +9,7 @@
 #include <iostream>
 #include <exception>
 
-// Pointer implementation
+
 void identify(Base* p) {
     if (dynamic_cast<A*>(p) != NULL)
         std::cout << "A" << std::endl;
@@ -21,7 +21,7 @@ void identify(Base* p) {
         std::cout << "Unknown type" << std::endl;
 }
 
-// Reference implementation
+
 void identify(Base& p) {
     try {
         A& a = dynamic_cast<A&>(p);

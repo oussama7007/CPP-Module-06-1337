@@ -9,12 +9,16 @@ class   Base
 {
     public:
     int     level;
-    Base() : level(505){}
-    void    print_f()
+     Base() : level(505){}
+     void     print_f()
     {
             std::cout << "level = " << this->level << std::endl;
     }
+    virtual ~Base();
 };
+
+Base::~Base() {}
+
 
 class derived : public Base
 {

@@ -21,15 +21,14 @@ void identify(Base* p) {
         std::cout << "Unknown type" << std::endl;
 }
 
+
 void identify(Base& p) {
     try {
         A& a = dynamic_cast<A&>(p);
         (void)a;
         std::cout << "A" << std::endl;
         return;
-    } catch (std::exception &e) {
-       
-    }
+    } catch (std::exception& e) {}
 
     try {
         B& b = dynamic_cast<B&>(p);
